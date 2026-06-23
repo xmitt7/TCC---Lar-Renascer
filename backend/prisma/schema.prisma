@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Gestante {
+  id                String   @id @default(uuid())
+  nome              String
+  idade             Int
+  contato           String
+  situacao_relatada String
+  observacoes       String?
+  status            String   @default("pendente")
+  criado_em         DateTime @default(now())
+}
+
+model Doacao {
+  id              String   @id @default(uuid())
+  nome_doador     String?
+  anonimo         Boolean  @default(false)
+  telefone        String?
+  email           String?
+  valor_informado Decimal?
+  mensagem        String?
+  criado_em       DateTime @default(now())
+}
