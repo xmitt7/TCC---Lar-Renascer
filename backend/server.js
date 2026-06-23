@@ -4,6 +4,8 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 const app = express();
 
+const qrcode = require('qrcode');
+
 app.use(express.json());
 
 // ROTA PÚBLICA: Cadastrar uma nova gestante
@@ -85,6 +87,27 @@ app.get('/interno/doacoes', basicAuth, async (req, res) => {
   } catch (error) {
     console.error('Erro ao listar doações:', error);
     res.status(500).json({ erro: 'Erro interno ao buscar os dados.' });
+  }
+});
+
+// ROTA PÚBLICA: Gerar o QR Code para Doação via Pix
+app.get('/pix', async (req, res) => {
+  try {
+    // IMPORTANTE: Para o MVP, você pode gerar um "Pix Copia e Cola" estático (sem valor definido) 
+    // direto no aplicativo do banco da instituição e colar a string inteira aqui.
+    // Abaixo está uma string de exemplo (não funcional).
+    const payloadPix = "00020126580014br.gov.bcb.pix0136123e4567-e89b-12d3-a456-4266554400005204000053039865802BR5913Lar Renascer6009Joinville62070503***6304ABCD";
+
+    // Gera a imagem do QR Code em formato Data URI (Base64) - fácil para o frontend exibir na tag <img>
+    const qrCodeImage = await qrcode.toDataURL(payloadPix);
+
+    res.json({
+      copia_e_cola: payloadPix,
+      qr_code_base64: qrCodeImage
+    });
+  } catch (error) {
+    console.error('Erro ao gerar QR Code:', error);
+    res.status(500).json({ erro: 'Erro interno ao gerar o PIX.' });
   }
 });
 
