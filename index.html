@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lar Renascer</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+        body {
+            font-family: 'Lora', serif;
+        }
+    </style>
+</head>
+
+<body class="bg-stone-50">
+    <nav class="bg-[#3D0C33] h-14 px-6 flex items-center justify-between">
+        <img src="assets/logo.png" alt="Lar Renascer" class="h-8">
+        <div class="hidden md:flex gap-20 text-pink-300 text-md">
+            <a href="#">Sobre nós</a>
+            <a href="#">Bazar</a>
+            <a href="#">Contato</a>
+        </div>
+        <a href="#" class="bg-[#E8A020] text-amber-950 px-4 py-2 rounded-full text-sm font-medium">
+            Doe agora
+        </a>
+    </nav>
+
+    <section class="relative h-[550px]">
+        <img src="assets/teste_landpage.jpg" alt="Foto da landpage" class="absolute inset-0 h-full w-full object-cover">
+        <div class="absolute inset-0 bg-[#3D0C33]/70"></div>
+        <div class="relative z-10 max-w-7xl mx-auto h-full flex items-center px-6">
+            <div class="max-w-2xl">
+                <span class="uppercase tracking-widest text-[#E8A020] text-xs">
+                    Assistência Social • Itajaí SC
+                </span>
+                <h1 class="mt-4 text-5xl font-serif text-white leading-tight">
+                    Renascer é sempre possível
+                </h1>
+                <p class="mt-5 text-pink-200 leading-8">
+                    Oferecemos acolhimento, apoio e oportunidades para pessoas em situação
+                    de vulnerabilidade social.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="w-full bg-[#C0399A] py-5 text-white text-md">
+        <ul class="flex justify-center items-center gap-10">
+            <li class="flex items-center gap-2">
+                <i class="ti ti-home"></i>
+                <span>Acolhimento residencial</span>
+            </li>
+            <li class="w-1 h-1 rounded-full bg-[#FAEAF5]"></li>
+            <li class="flex items-center gap-2">
+                <i class="ti ti-school"></i>
+                <span>Educação e capacitação</span>
+            </li>
+            <li class="w-1 h-1 rounded-full bg-[#FAEAF5]"></li>
+            <li class="flex items-center gap-2">
+                <i class="ti ti-brain"></i>
+                <span>Apoio psicossocial</span>
+            </li>
+        </ul>
+    </div>
+    </nav>
+
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <span class="uppercase text-sm tracking-wider text-fuchsia-700">
+                O que fazemos
+            </span>
+            <h2 class="text-4xl font-serif text-slate-900 mt-2">
+                O trabalho sendo feito
+            </h2>
+            <p class="mt-4 text-slate-600 max-w-2xl">
+                Cada dia no Lar Renascer é uma oportunidade de transformar vidas.
+            </p>
+            <div class="grid md:grid-cols-3 gap-6 mt-10">
+                <article class="bg-white rounded-2xl overflow-hidden border">
+                    <img src="assets/acolhimento_casa.png" alt="" class="h-56 w-full object-cover">
+                    <div class="p-6">
+                        <div class="w-12 h-12 rounded-xl bg-pink-100 flex items-center justify-center">
+                            🏠
+                        </div>
+                        <h3 class="font-semibold text-lg mt-4">
+                            Acolhimento residencial
+                        </h3>
+                        <p class="text-slate-600 mt-2">
+                            Moradia segura e estruturada para pessoas em situação de vulnerabilidade.
+                        </p>
+                    </div>
+                </article>
+                <article class="bg-white rounded-2xl overflow-hidden border">
+                    <img src="assets/sala_de_aula.png" alt="" class="h-56 w-full object-cover">
+                    <div class="p-6">
+                        <div class="w-12 h-12 rounded-xl bg-pink-100 flex items-center justify-center">
+                            🏫
+                        </div>
+                        <h3 class="font-semibold text-lg mt-4">
+                            Educação e capacitação
+                        </h3>
+                        <p class="text-slate-600 mt-2">
+                            Oficinas, cursos e acompamento pedagógico para todas a idades.
+                        </p>
+                    </div>
+                </article>
+                <article class="bg-white rounded-2xl overflow-hidden border">
+                    <img src="assets/apoio_psicossocial.png" alt="" class="h-56 w-full object-cover">
+                    <div class="p-6">
+                        <div class="w-12 h-12 rounded-xl bg-pink-100 flex items-center justify-center">
+                            🩺
+                        </div>
+                        <h3 class="font-semibold text-lg mt-4">
+                            Apoio psicossocial
+                        </h3>
+                        <p class="text-slate-600 mt-2">
+                            Moradia segura e estruturada para pessoas em situação de vulnerabilidade.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+    <div class="w-full bg-[#E8A020] py-5">
+        <div class="max-w-7xl mx-auto px-6">
+            <span class="uppercase tracking-wider text-black text-xs">
+                Campanha de Inverno 2026
+            </span>
+            <h2 class="text-xl font-serif text-black mt-1">
+                Ajude a aquecer mais familias neste inverno
+            </h2>
+            <p class="mt-1 text-black texte-xs max-w-2xl">
+                Doe roupas, cobertores e alimentos não perecíveis
+            </p>
+        </div>
+    </div>
+
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <span class="uppercase text-sm tracking-wider text-fuchsia-700">
+                Galeria
+            </span>
+            <h2 class="text-4xl font-serif text-slate-900 mt-2">
+                Momentos do lar
+            </h2>
+            <p class="mt-4 text-slate-600 max-w-2xl">
+                Um registro do nosso dia a dia
+            </p>
+            <div class="grid md:grid-cols-3 gap-2 mt-10">
+                <article class="bg-white rounded overflow-hidden border">
+                    <img src="assets/voluntario.png" alt="" class="h-56 w-full object-cover">
+                </article>
+                <article class="bg-white rounded overflow-hidden border">
+                    <img src="assets/maos.jfif" alt="" class="h-56 w-full object-cover">
+                </article>
+                <article class="bg-white rounded overflow-hidden border">
+                    <img src="assets/coracao.jfif" alt="" class="h-56 w-full object-cover">
+                </article>
+            </div>
+        </div>
+    </section>
+    <section class="py-1 px-1">
+        <div class="max-w-7xl mx-auto">
+            <span class="uppercase text-sm tracking-wider text-fuchsia-700">
+                Histórias de superação
+            </span>
+            <div class="grid md:grid-cols-2 gap-6 mt-4 ">
+                <span class="tracking-wider text-black text-sm border-l-4 border-[#C0399A] pl-4">
+                    <img src="assets/foto_testemunho_icone.png" alt="" class="h-12 w-12 object-cover rounded-full">
+                    <h2 class="text-black mt-1">
+                        "O Lar me deu a chance de recomeçar. Hoje tenho emprego, casa e minha família está comigo."
+                    </h2>
+                    <p class="text-black mt-1 text-xs">
+                        Leticia A.
+                    </p>
+                    <p class="text-black text-xs">
+                        Assistido há 2 anos
+                    </p>
+                </span>
+                <span class="tracking-wider text-black text-sm border-l-4 border-[#C0399A] pl-4">
+                    <img src="assets/foto_testemunho_icone_2.png" alt="" class="h-12 w-12 object-cover rounded-full">
+                    <h2 class="text-black mt-1">
+                        "Ser voluntária aqui mudou minha perspectiva de vida. Ver o impacto real é emocionante demais."
+                    </h2>
+                    <p class="text-black mt-1 text-xs">
+                        Paola M.
+                    </p>
+                    <p class="text-black text-xs">
+                        Voluntária desde 2022
+                    </p>
+                </span>
+            </div>
+        </div>
+    </section>
+    <section class="bg-[#C0399A] py-4 z-50 mt-10">
+        <div class="max-w-4xl mx-auto text-center px-6">
+            <h2 class="text-2xl font-serif text-white">
+                Juntos podemos transformar mais vidas
+            </h2>
+            <p class="text-pink-200 mt-2">
+                Sua doação ou tempo voluntário faz a diferença todos os dias.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 mt-4">
+                <a href="#" class="bg-[#E8A020] text-amber-950 px-6 py-3 rounded-full font-medium">
+                    Fazer uma doação
+                </a>
+                <a href="#" class="border border-white/30 text-white px-6 py-3 rounded-full">
+                    Ser voluntário
+                </a>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-[#3D0C33] h-14 px-6 flex items-center justify-between">
+        <img src="assets/logo.png" alt="Lar Renascer" class="h-8">
+        <div class="hidden md:flex gap-10 text-pink-300 text-md">
+            <a href="#">Privacidade</a>
+            <a href="#">Termos de Uso</a>
+        </div>
+        <a href="#">
+            <img src="assets/instagram.png" alt="Instagram" class="h-6 w-6 inline-block">
+        </a>
+    </footer>
+</body>""
+</html>
