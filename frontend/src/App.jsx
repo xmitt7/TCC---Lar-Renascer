@@ -5,8 +5,18 @@ import Doacoes from './components/Doacoes';
 import Gestantes from './components/Gestantes';
 import Footer from './components/Footer';
 
+import RelatorioGestantes from './components/RelatorioGestantes';
+import RelatorioDoacoes from './components/RelatorioDoacoes';
+
 export default function App() {
-  const [telaAtiva, setTelaAtiva] = useState('landing');
+  const getTelaInicial = () => {
+    const caminho = window.location.pathname;
+    if (caminho === '/painel-gestantes') return 'painel-gestantes';
+    if (caminho === '/painel-doacoes') return 'painel-doacoes';
+    return 'landing';
+  };
+
+  const [telaAtiva, setTelaAtiva] = useState(getTelaInicial());
 
   const handleScrollToContato = () => {
     if (telaAtiva !== 'landing') {
@@ -29,6 +39,9 @@ export default function App() {
         {telaAtiva === 'landing' && <LandingPage onNavigate={setTelaAtiva} />}
         {telaAtiva === 'doacoes' && <Doacoes />}
         {telaAtiva === 'gestantes' && <Gestantes />}
+
+        {telaAtiva === 'painel-gestantes' && <RelatorioGestantes />}
+        {telaAtiva === 'painel-doacoes' && <RelatorioDoacoes />}
       </main>
 
       <Footer />
