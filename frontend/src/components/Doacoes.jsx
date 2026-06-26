@@ -28,7 +28,6 @@ export default function Doacoes() {
       .then(data => {
         console.log("Dados brutos recebidos da API:", data);
 
-        // Força a validação das chaves exatas que confirmou no JSON
         const textoPix = data.copia_e_cola || "";
         const imagemPix = data.qr_code_base64 || "";
 
@@ -89,64 +88,64 @@ export default function Doacoes() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8] py-8 px-4 sm:py-16 sm:px-6 lg:px-8 flex items-center justify-center font-['Nunito',sans-serif]">
-      <div className="max-w-5xl w-full bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+    <div className="w-full flex items-center justify-center px-4 font-['Nunito',sans-serif]">
+      <div className="max-w-4xl w-full bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden grid grid-cols-1 lg:grid-cols-12 transform sm:scale-95 origin-center">
         
         {/* COLUNA 1: FORMULÁRIO */}
-        <div className="p-6 sm:p-10 lg:col-span-7 flex flex-col justify-between">
+        <div className="p-6 lg:col-span-7 flex flex-col justify-between">
           <div>
-            <span className="text-xs font-bold tracking-widest text-[#3D0C33] uppercase bg-[#FAEAF5] px-3 py-1 rounded-full w-max block mb-3">
+            <span className="text-[10px] font-bold tracking-widest text-[#3D0C33] uppercase bg-[#FAEAF5] px-3 py-1 rounded-full w-max block mb-2">
               Lar Renascer
             </span>
-            <h2 className="text-2xl sm:text-3xl font-semibold text-[#1E0F35] tracking-tight mb-2 font-serif">
+            <h2 className="text-2xl font-semibold text-[#1E0F35] tracking-tight mb-1 font-serif">
               Registrar Contribuição
             </h2>
-            <p className="text-sm text-[#4E3490] mb-6 sm:mb-8">
-              Preencha os dados abaixo para registrar sua intenção de doação em nosso sistema.
+            <p className="text-xs text-[#4E3490] mb-4">
+              Preencha os dados abaixo para receber agradecimentos do Lar Renascer.
             </p>
 
-            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-3">
               <div>
-                <label className="block text-xs font-semibold text-[#3D2060] uppercase tracking-wider mb-1">Nome do Doador</label>
+                <label className="block text-[11px] font-semibold text-[#3D2060] uppercase tracking-wider mb-1">Nome do Doador</label>
                 <input
                   type="text"
                   name="nome_doador"
                   disabled={formData.anonimo}
                   value={formData.anonimo ? 'Anônimo' : formData.nome_doador}
                   onChange={handleChange}
-                  className="w-full rounded-xl border border-[#D4C5ED] shadow-sm focus:border-[#C0399A] focus:ring-2 focus:ring-[#FAEAF5] transition bg-white p-3 outline-none disabled:bg-gray-50 disabled:text-gray-400"
+                  className="w-full rounded-xl border border-[#D4C5ED] shadow-sm focus:border-[#C0399A] focus:ring-2 focus:ring-[#FAEAF5] transition bg-white p-2.5 text-sm outline-none disabled:bg-gray-50 disabled:text-gray-400"
                   required={!formData.anonimo}
                 />
               </div>
 
-              <div className="flex items-center space-x-3 bg-[#FAFAF8] p-3 rounded-xl border border-[#D4C5ED]">
+              <div className="flex items-center space-x-3 bg-[#FAFAF8] p-2.5 rounded-xl border border-[#D4C5ED]">
                 <input
                   type="checkbox"
                   name="anonimo"
                   id="anonimo"
                   checked={formData.anonimo}
                   onChange={handleChange}
-                  className="h-5 w-5 text-[#C0399A] focus:ring-[#C0399A] border-gray-300 rounded cursor-pointer"
+                  className="h-4 w-4 text-[#C0399A] focus:ring-[#C0399A] border-gray-300 rounded cursor-pointer"
                 />
-                <label htmlFor="anonimo" className="text-sm text-[#1E0F35] font-medium cursor-pointer select-none">
+                <label htmlFor="anonimo" className="text-xs text-[#1E0F35] font-medium cursor-pointer select-none">
                   Quero fazer uma doação anônima
                 </label>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-semibold text-[#3D2060] uppercase tracking-wider mb-1">Telefone / WhatsApp</label>
+                  <label className="block text-[11px] font-semibold text-[#3D2060] uppercase tracking-wider mb-1">Telefone / WhatsApp</label>
                   <input
                     type="text"
                     name="telefone"
                     placeholder="(47) 99999-0000"
                     value={formData.telefone}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-[#D4C5ED] shadow-sm focus:border-[#C0399A] focus:ring-2 focus:ring-[#FAEAF5] transition bg-white p-3 outline-none"
+                    className="w-full rounded-xl border border-[#D4C5ED] shadow-sm focus:border-[#C0399A] focus:ring-2 focus:ring-[#FAEAF5] transition bg-white p-2.5 text-sm outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-[#3D2060] uppercase tracking-wider mb-1">Valor da Doação (R$)</label>
+                  <label className="block text-[11px] font-semibold text-[#3D2060] uppercase tracking-wider mb-1">Valor da Doação (R$)</label>
                   <input
                     type="number"
                     name="valor_informado"
@@ -155,39 +154,39 @@ export default function Doacoes() {
                     min="1"
                     value={formData.valor_informado}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-[#D4C5ED] shadow-sm focus:border-[#C0399A] focus:ring-2 focus:ring-[#FAEAF5] transition bg-white p-3 outline-none font-medium text-[#C0399A]"
+                    className="w-full rounded-xl border border-[#D4C5ED] shadow-sm focus:border-[#C0399A] focus:ring-2 focus:ring-[#FAEAF5] transition bg-white p-2.5 text-sm outline-none font-medium text-[#C0399A]"
                     required
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-[#3D2060] uppercase tracking-wider mb-1">Mensagem de Apoio (Opcional)</label>
+                <label className="block text-[11px] font-semibold text-[#3D2060] uppercase tracking-wider mb-1">Mensagem de Apoio (Opcional)</label>
                 <textarea
                   name="mensagem"
-                  rows="3"
+                  rows="2"
                   placeholder="Deixe uma mensagem para o Lar..."
                   value={formData.mensagem}
                   onChange={handleChange}
-                  className="w-full rounded-xl border border-[#D4C5ED] shadow-sm focus:border-[#C0399A] focus:ring-2 focus:ring-[#FAEAF5] transition bg-white p-3 outline-none resize-none"
+                  className="w-full rounded-xl border border-[#D4C5ED] shadow-sm focus:border-[#C0399A] focus:ring-2 focus:ring-[#FAEAF5] transition bg-white p-2.5 text-sm outline-none resize-none"
                 ></textarea>
               </div>
 
               <button
                 type="submit"
                 disabled={statusEnvio === 'enviando'}
-                className="w-full bg-[#C0399A] hover:bg-[#922876] text-white font-semibold py-3 px-4 rounded-xl shadow-md transition transform active:scale-[0.99] disabled:opacity-50 cursor-pointer"
+                className="w-full bg-[#C0399A] hover:bg-[#922876] text-white font-semibold py-2.5 px-4 rounded-xl shadow-md transition transform active:scale-[0.99] disabled:opacity-50 cursor-pointer text-sm"
               >
                 {statusEnvio === 'enviando' ? 'Processando...' : 'Confirmar Intenção'}
               </button>
 
               {statusEnvio === 'sucesso' && (
-                <div className="p-3 bg-green-50 border border-green-200 rounded-xl text-green-700 text-sm font-semibold text-center">
+                <div className="p-2.5 bg-green-50 border border-green-200 rounded-xl text-green-700 text-xs font-semibold text-center">
                   🎉 Intenção registrada com sucesso! Agradecemos seu apoio.
                 </div>
               )}
               {statusEnvio === 'erro' && (
-                <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm font-semibold text-center">
+                <div className="p-2.5 bg-red-50 border border-red-200 rounded-xl text-red-700 text-xs font-semibold text-center">
                   ⚠️ Erro ao registrar. Se preferir, utilize diretamente o Pix ao lado.
                 </div>
               )}
@@ -196,61 +195,60 @@ export default function Doacoes() {
         </div>
 
         {/* COLUNA 2: CARD INTEGRADO DO PIX */}
-        <div className="p-6 sm:p-10 lg:col-span-5 bg-[#3D0C33] flex flex-col items-center justify-center text-center text-white">
+        <div className="p-6 lg:col-span-5 bg-[#3D0C33] flex flex-col items-center justify-center text-center text-white">
           <div className="w-full max-w-sm flex flex-col items-center">
-            <h3 className="text-xl font-semibold text-[#E8A020] mb-2 font-serif">Doação Instantânea</h3>
-            <p className="text-xs text-[#F0BCDF] mb-6 px-4 leading-relaxed">
+            <h3 className="text-lg font-semibold text-[#E8A020] mb-1 font-serif">Doação Instantânea</h3>
+            <p className="text-[11px] text-[#F0BCDF] mb-4 px-2 leading-relaxed">
               Aponte a câmera do seu banco para o QR Code ou use o código Copia e Cola.
             </p>
 
-            {/* Container do QR Code */}
-            <div className="bg-white p-4 rounded-xl shadow-lg mb-6 transition-all duration-300 flex items-center justify-center">
+            <div className="bg-white p-3 rounded-xl shadow-lg mb-5 transition-all duration-300 flex items-center justify-center">
               {loadingPix ? (
-                <div className="w-48 h-48 sm:w-52 sm:h-52 bg-gray-50 rounded-lg flex items-center justify-center animate-pulse">
+                <div className="w-40 h-40 sm:w-44 sm:h-44 bg-gray-50 rounded-lg flex items-center justify-center animate-pulse">
                   <span className="text-xs text-gray-400 font-medium">Buscando Pix...</span>
                 </div>
               ) : pixData.qr_code_base64 ? (
                 <img 
                   src={pixData.qr_code_base64} 
                   alt="QR Code Pix Lar Renascer" 
-                  className="w-48 h-48 sm:w-52 sm:h-52 object-contain block"
+                  className="w-40 h-40 sm:w-44 sm:h-44 object-contain block"
                 />
               ) : (
-                <div className="w-48 h-48 sm:w-52 sm:h-52 bg-gray-50 rounded-lg flex items-center justify-center border border-dashed border-gray-300">
+                <div className="w-40 h-40 sm:w-44 sm:h-44 bg-gray-50 rounded-lg flex items-center justify-center border border-dashed border-gray-300">
                   <span className="text-xs text-red-400 p-4">QR Code indisponível</span>
                 </div>
               )}
             </div>
 
             {/* Área Pix Copia e Cola Dupla */}
-            <div className="w-full space-y-2 text-left">
-              <label className="block text-xs font-semibold text-[#DF88C4] uppercase tracking-wider pl-1">Código Copia e Cola</label>
+            <div className="w-full space-y-1.5 text-left">
+              <label className="block text-[10px] font-semibold text-[#DF88C4] uppercase tracking-wider pl-1">Código Copia e Cola</label>
               <div className="flex flex-col sm:flex-row gap-2 w-full">
                 <input
                   type="text"
                   readOnly
                   value={loadingPix ? "Carregando..." : pixData.copia_e_cola || "Código não gerado"}
-                  className="flex-1 bg-[#3D0C33] border border-[#DF88C4]/40 text-xs text-[#FAEAF5] p-3 rounded-xl outline-none font-mono truncate text-center sm:text-left"
+                  className="flex-1 bg-[#3D0C33] border border-[#DF88C4]/40 text-[11px] text-[#FAEAF5] p-2.5 rounded-xl outline-none font-mono truncate text-center sm:text-left"
                 />
                 <button
                   type="button"
                   onClick={handleCopyPix}
                   disabled={loadingPix || !pixData.copia_e_cola}
-                  className={`px-4 py-3 rounded-xl font-semibold text-xs transition whitespace-nowrap shadow-sm active:scale-95 cursor-pointer ${
+                  className={`px-3 py-2.5 rounded-xl font-semibold text-[11px] transition whitespace-nowrap shadow-sm active:scale-95 cursor-pointer ${
                     copiado 
                       ? 'bg-green-600 text-white' 
                       : 'bg-[#E8A020] text-[#3A1E00] hover:bg-[#B87A10]'
                   }`}
                 >
-                  {copiado ? '✓ Copiado!' : '📋 Copiar'}
+                  {copiado ? '✓ Copiado' : '📋 Copiar'}
                 </button>
               </div>
             </div>
 
             {/* Rodapé Interno do Card */}
-            <div className="mt-8 pt-6 border-t border-[#DF88C4]/20 text-[11px] text-[#DF88C4] w-full leading-relaxed">
+            <div className="mt-5 pt-4 border-t border-[#DF88C4]/20 text-[10px] text-[#DF88C4] w-full leading-relaxed">
               Favorecido: <strong className="text-white">Lar Renascer</strong><br />
-              Joinville - SC • Ambiente de Validação Acadêmica
+              Joinville - SC • Associação Beneficente Renascer
             </div>
           </div>
         </div>
