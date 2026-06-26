@@ -13,7 +13,7 @@ const cadastrarGestante = async (req, res) => {
         nome, 
         idade: parseInt(idade, 10), 
         contato, 
-        situacao_relatada: situacao_relatada || null, 
+        situacao_relatada: situacao_relatada, 
         observacoes 
       }
     });

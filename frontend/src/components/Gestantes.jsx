@@ -68,7 +68,7 @@ export default function Gestantes() {
                 nome: data.nome,
                 idade: parseInt(data.idade),
                 contato: data.contato,
-                situacao_relatada: data.situacao_relatada,
+                situacao_relatada: data.situacao_relatada || "",
                 observacoes: data.observacoes || "",
             };
 
@@ -213,17 +213,16 @@ export default function Gestantes() {
 
                         <div className="mb-5">
                             <label className="block text-sm font-medium text-slate-700 mb-1" htmlFor="situacao_relatada">
-                                Situação relatada (Opcional)
+                                Situação relatada (Obrigatório)
                             </label>
                             <textarea
                                 id="situacao_relatada"
                                 placeholder="Descreva a situação de risco ou dificuldade que está enfrentando..."
                                 className={`w-full px-4 py-3 rounded-xl border ${errors.situacao_relatada ? "border-red-500 focus:ring-red-500" : "border-slate-200 focus:ring-[#C0399A]"} focus:outline-none focus:ring-2 focus:border-transparent transition-all min-h-[120px]`}
                                 {...register("situacao_relatada", {
-                                    minLength: { value: 10, message: "A descrição precisa ter pelo menos 10 caracteres caso seja preenchida." },
+                                    validate: (value) => !value || value.trim().length >= 10 || "A descrição precisa ter pelo menos 10 caracteres caso seja preenchida."
                                 })}
                             />
-                            {errors.situacao_relatada && <p className="text-red-500 text-xs mt-1 font-medium">{errors.situacao_relatada.message}</p>}
                         </div>
 
                         <div>
