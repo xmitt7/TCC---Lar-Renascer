@@ -67,7 +67,7 @@ export default function Doacoes() {
     setStatusEnvio('enviando');
 
     try {
-      const response = await fetch(`${API_BASE_URL}/doacoes`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/doacoes`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

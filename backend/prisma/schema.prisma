@@ -8,18 +8,17 @@ datasource db {
 }
 
 model Gestante {
-  id                String   @id @default(uuid())
+  id                Int   @id @default(uuid())
   nome              String
   idade             Int
   contato           String
-  situacao_relatada String
+  situacao_relatada String?
   observacoes       String?
-  status            String   @default("pendente")
   criado_em         DateTime @default(now())
 }
 
 model Doacao {
-  id              String   @id @default(uuid())
+  id              Int   @id @default(uuid())
   nome_doador     String?
   anonimo         Boolean  @default(false)
   telefone        String?
