@@ -4,12 +4,18 @@ const cadastrarGestante = async (req, res) => {
   try {
     const { nome, idade, contato, situacao_relatada, observacoes } = req.body;
 
-    if (!nome || !idade || !contato || !situacao_relatada) {
+    if (!nome || !idade || !contato) {
       return res.status(400).json({ erro: 'Preencha todos os campos obrigatórios.' });
     }
 
     const novaGestante = await prisma.gestante.create({
-      data: { nome, idade, contato, situacao_relatada, observacoes }
+      data: { 
+        nome, 
+        idade: parseInt(idade, 10), 
+        contato, 
+        situacao_relatada: situacao_relatada || null, 
+        observacoes 
+      }
     });
 
     res.status(201).json(novaGestante);
