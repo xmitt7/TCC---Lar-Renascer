@@ -9,7 +9,15 @@ const gestantesRoutes = require('./src/routes/gestantesRoutes');
 const app = express();
 
 // Middlewares Globais
-app.use(cors({ origin: '*' }));
+app.use(cors({
+  origin: [
+    'http://localhost:5173',     
+    'https://tcc-lar-renascer.vercel.app'
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
+
 app.use(express.json());
 
 // Injeção das Rotas
